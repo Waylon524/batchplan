@@ -24,7 +24,7 @@ pub fn parse_request(text : String) -> Result[Request, Array[Issue]] {
         ),
       ])
     }
-    Ok(@json.from_json(@json.parse(text)))
+    Ok(@json.from_json(normalize_groups(@json.parse(text))))
   } catch {
     error => Err([issue("invalid_json", -1, -1, error.to_string())])
   }
@@ -42,7 +42,7 @@ pub fn parse_verification_request(
         ),
       ])
     }
-    Ok(@json.from_json(@json.parse(text)))
+    Ok(@json.from_json(normalize_groups(@json.parse(text))))
   } catch {
     error => Err([issue("invalid_json", -1, -1, error.to_string())])
   }
@@ -145,4 +145,22 @@ fn wire_preflight(text : String) -> Bool {
     number = false
   }
   true
+}
+
+///|
+/// Standard typed decoding treats an omitted optional field as None.
+/// Accept explicit JSON null for group as well; this operates on fresh parsed data.
+fn normalize_groups(value : Json) -> Json {
+  if value is Object(root) {
+    if root.get("items") is Some(Array(items)) {
+      for item in items {
+        if item is Object(fields) {
+          if fields.get("group") is Some(Null) {
+            fields.remove("group")
+          }
+        }
+      }
+    }
+  }
+  value
 }

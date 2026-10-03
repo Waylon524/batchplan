@@ -33,3 +33,16 @@ test "malformed missing fractional and out-of-range integer JSON fails" {
   )
   assert_eq(codes(verify_json("no")), ["invalid_json"])
 }
+
+///|
+test "explicit null group is accepted as ungrouped" {
+  let request : Request = {
+    budget: simple_budget(10, 2),
+    items: [item("a", 4)],
+  }
+  let text = stable_json(@json.to_json(request)).replace(
+    old="\"id\":\"a\"",
+    new="\"group\":null,\"id\":\"a\"",
+  )
+  assert_eq(parse_request(text), Ok(request))
+}

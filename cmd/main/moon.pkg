@@ -1,0 +1,9 @@
+import {
+  "dot-agent/batchplan",
+}
+
+pkgtype(kind: "executable")
+
+options(
+  supported_targets: "js",
+)
