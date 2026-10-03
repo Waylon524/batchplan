@@ -9,8 +9,6 @@ import {
 // Values
 pub fn assignments_csv(Array[Item], Budget, Plan) -> Result[String, Array[Issue]]
 
-pub fn batch_id(Int) -> String
-
 pub fn issues_json(Array[Issue]) -> String
 
 pub fn parse_request(String) -> Result[Request, Array[Issue]]

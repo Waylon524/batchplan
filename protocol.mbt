@@ -56,7 +56,7 @@ fn stable_json(value : Json) -> String {
   match value {
     Object(object) => {
       let keys = object.keys().to_array()
-      keys.sort()
+      keys.sort_by(String::lexical_compare)
       "{" +
       keys
       .map(fn(key) {

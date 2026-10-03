@@ -60,6 +60,6 @@ fn blank(value : String) -> Bool {
 }
 
 ///|
-pub fn batch_id(index : Int) -> String {
+fn batch_id(index : Int) -> String {
   "batch-\{index + 1}"
 }
