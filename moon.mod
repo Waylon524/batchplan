@@ -9,3 +9,5 @@ description = "Deterministic order-preserving batch planning with multiple budge
 keywords = [ "batching", "validation", "data-processing" ]
 
 preferred_target = "js"
+
+warnings = "-implicit_impl_as_method"

@@ -5,7 +5,7 @@ pub(all) struct Item {
   id : String
   costs : Array[Int]
   group : String?
-} derive(Eq, Show, ToJson, FromJson)
+} derive(Eq, @debug.Debug, ToJson, FromJson)
 
 ///|
 /// All overhead is explicit and uses the same units as limits.
@@ -16,7 +16,7 @@ pub(all) struct Budget {
   max_items : Int
   batch_overhead : Array[Int]
   item_overhead : Array[Int]
-} derive(Eq, Show, ToJson, FromJson)
+} derive(Eq, @debug.Debug, ToJson, FromJson)
 
 ///|
 /// Stable source positions are zero-based. Totals include all declared overhead.
@@ -25,7 +25,7 @@ pub(all) struct Batch {
   indices : Array[Int]
   item_ids : Array[String]
   totals : Array[Int]
-} derive(Eq, Show, ToJson, FromJson)
+} derive(Eq, @debug.Debug, ToJson, FromJson)
 
 ///|
 /// A portable, inspectable manifest. Caller inputs are required for verification.
@@ -33,7 +33,7 @@ pub(all) struct Plan {
   schema_version : Int
   strategy : String
   batches : Array[Batch]
-} derive(Eq, Show, ToJson, FromJson)
+} derive(Eq, @debug.Debug, ToJson, FromJson)
 
 ///|
 /// Structured diagnostic. index/dimension are zero-based; -1 means not applicable.
@@ -42,7 +42,7 @@ pub(all) struct Issue {
   index : Int
   dimension : Int
   message : String
-} derive(Eq, Show, ToJson, FromJson)
+} derive(Eq, @debug.Debug, ToJson, FromJson)
 
 ///|
 fn issue(
