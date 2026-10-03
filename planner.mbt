@@ -72,20 +72,8 @@ pub fn plan(items : Array[Item], budget : Budget) -> Result[Plan, Array[Issue]] 
   if !errors.is_empty() {
     return Err(errors)
   }
-  let units : Array[UnitOfWork] = []
-  for index, item in items {
-    if item.group is Some(_) {
-      return Err([
-        issue(
-          "groups_not_supported", index, -1, "atomic groups require the group planner",
-        ),
-      ])
-    }
-    units.push({
-      start: index,
-      end: index + 1,
-      costs: item.costs.mapi(fn(d, c) { c + budget.item_overhead[d] }),
-    })
+  match atomic_units(items, budget) {
+    Err(errors) => Err(errors)
+    Ok(units) => Ok(plan_units(items, budget, units))
   }
-  Ok(plan_units(items, budget, units))
 }
