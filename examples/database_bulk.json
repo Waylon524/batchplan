@@ -1,0 +1,61 @@
+{
+  "budget": {
+    "dimensions": [
+      "payload_bytes"
+    ],
+    "limits": [
+      256
+    ],
+    "max_items": 4,
+    "batch_overhead": [
+      16
+    ],
+    "item_overhead": [
+      2
+    ]
+  },
+  "items": [
+    {
+      "id": "row-a",
+      "costs": [
+        90
+      ],
+      "group": null
+    },
+    {
+      "id": "row-b",
+      "costs": [
+        60
+      ],
+      "group": "order-42"
+    },
+    {
+      "id": "row-c",
+      "costs": [
+        70
+      ],
+      "group": "order-42"
+    },
+    {
+      "id": "row-d",
+      "costs": [
+        40
+      ],
+      "group": "order-42"
+    },
+    {
+      "id": "row-e",
+      "costs": [
+        100
+      ],
+      "group": null
+    },
+    {
+      "id": "row-f",
+      "costs": [
+        120
+      ],
+      "group": null
+    }
+  ]
+}

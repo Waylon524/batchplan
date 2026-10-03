@@ -1,0 +1,61 @@
+{
+  "budget": {
+    "dimensions": [
+      "estimated_bytes"
+    ],
+    "limits": [
+      1000
+    ],
+    "max_items": 3,
+    "batch_overhead": [
+      64
+    ],
+    "item_overhead": [
+      1
+    ]
+  },
+  "items": [
+    {
+      "id": "export-1",
+      "costs": [
+        400
+      ],
+      "group": null
+    },
+    {
+      "id": "export-2",
+      "costs": [
+        500
+      ],
+      "group": null
+    },
+    {
+      "id": "export-3",
+      "costs": [
+        100
+      ],
+      "group": null
+    },
+    {
+      "id": "export-4",
+      "costs": [
+        0
+      ],
+      "group": null
+    },
+    {
+      "id": "export-5",
+      "costs": [
+        840
+      ],
+      "group": null
+    },
+    {
+      "id": "export-6",
+      "costs": [
+        50
+      ],
+      "group": null
+    }
+  ]
+}
