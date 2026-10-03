@@ -21,7 +21,15 @@ A successful pattern scan is not a proof that arbitrary files contain no secrets
 
 ## Independent review
 
-A separate reviewer tested the pure core against an independently implemented Python oracle and malicious-manifest mutations. The final review report and exact reproduction scripts are delivered separately. Numbers in that report should be associated with its recorded code checkpoint, rather than extrapolated to later functional changes.
+The final code checkpoint above was independently reviewed and retested from a fresh source archive. The reviewer found no unresolved correctness defect. Additional JavaScript-target checks passed:
+
+- 20,000 generated planning requests matched an independent Python integer-arithmetic oracle (3,932 feasible; 16,068 invalid or infeasible)
+- 45,419 verifier mutation cases matched expected acceptance/rejection (3,932 valid; 41,487 intentionally invalid)
+- 50 wire-protocol boundary cases
+- Seven targeted group/order/count/coverage/overflow attacks
+- 5,556 exhaustive assignment/batch-boundary cases for a fixed small grouped input
+
+The exact reproduction scripts, archived code checkpoint and test logs accompany the delivery. These are deterministic test corpora, not 20,000 real workloads or a formal correctness proof.
 
 ## Coverage observation
 

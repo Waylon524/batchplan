@@ -59,7 +59,7 @@ This example is compiled as a black-box API test in `api_test.mbt`. See [generat
 - Arithmetic is checked before adding, including near the signed 32-bit integer maximum
 - Independent verification recomputes totals and checks assignments; it does not call the planner
 
-The strategy is next-fit: append to the current batch if it fits, otherwise start the next. It does not optimize global batch count. Costs must be accurate or conservative; BatchPlan does not tokenize text, measure real payloads, send requests, execute database transactions, schedule or retry work. Inputs are held in memory. Read [the precise domain contract](docs/DESIGN.md).
+The strategy is next-fit: append to the current batch if it fits, otherwise start the next. It does not optimize global batch count. Costs must be accurate or conservative; BatchPlan does not tokenize text, measure real payloads, send requests, execute database transactions, schedule or retry work. Inputs are held in memory. Read [the precise domain contract](docs/DESIGN.md) and [scoped ecosystem comparison](docs/ECOSYSTEM.md).
 
 ## JSON and CLI
 
