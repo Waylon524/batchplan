@@ -6,25 +6,15 @@ fn atomic_units(
 ) -> Result[Array[UnitOfWork], Array[Issue]] {
   let units : Array[UnitOfWork] = []
   let errors : Array[Issue] = []
-  let seen : Map[String, Bool] = Map([])
   let mut start = 0
   while start < items.length() {
     let mut end = start + 1
     match items[start].group {
       None => ()
-      Some(group) => {
-        if seen.contains(group) {
-          errors.push(
-            issue(
-              "noncontiguous_group", start, -1, "a group must occupy one contiguous run",
-            ),
-          )
-        }
-        seen[group] = true
+      Some(group) =>
         while end < items.length() && items[end].group == Some(group) {
           end = end + 1
         }
-      }
     }
     if end - start > budget.max_items {
       errors.push(

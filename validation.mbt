@@ -104,5 +104,27 @@ pub fn validate_input(items : Array[Item], budget : Budget) -> Array[Issue] {
       }
     }
   }
+  let closed_groups : Map[String, Bool] = Map([])
+  let mut previous : String? = None
+  for index, item in items {
+    if item.group != previous {
+      match previous {
+        Some(group) => closed_groups[group] = true
+        None => ()
+      }
+      match item.group {
+        Some(group) =>
+          if closed_groups.contains(group) {
+            errors.push(
+              issue(
+                "noncontiguous_group", index, -1, "a group must occupy one contiguous run",
+              ),
+            )
+          }
+        None => ()
+      }
+    }
+    previous = item.group
+  }
   errors
 }
