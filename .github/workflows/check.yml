@@ -1,0 +1,26 @@
+name: Check BatchPlan
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install current stable MoonBit from official source
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/moon-home"
+          curl --fail --silent --show-error --location https://cli.moonbitlang.com/install/unix.sh -o "$RUNNER_TEMP/install-moon.sh"
+          HOME="$RUNNER_TEMP/moon-home" MOON_HOME="$RUNNER_TEMP/moon" bash "$RUNNER_TEMP/install-moon.sh"
+          echo "MOON_HOME=$RUNNER_TEMP/moon" >> "$GITHUB_ENV"
+          echo "$RUNNER_TEMP/moon/bin" >> "$GITHUB_PATH"
+      - name: Check, test, build and execute examples
+        run: bash scripts/check.sh
+      - name: Check generated API and formatting remain committed
+        run: git diff --exit-code

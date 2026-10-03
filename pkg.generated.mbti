@@ -1,0 +1,81 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "dot-agent/batchplan"
+
+import {
+  "moonbitlang/core/debug",
+  "moonbitlang/core/json",
+}
+
+// Values
+pub fn assignments_csv(Array[Item], Budget, Plan) -> Result[String, Array[Issue]]
+
+pub fn batch_id(Int) -> String
+
+pub fn issues_json(Array[Issue]) -> String
+
+pub fn parse_request(String) -> Result[Request, Array[Issue]]
+
+pub fn parse_verification_request(String) -> Result[VerificationRequest, Array[Issue]]
+
+pub fn plan(Array[Item], Budget) -> Result[Plan, Array[Issue]]
+
+pub fn plan_json(String) -> Result[String, Array[Issue]]
+
+pub fn validate_input(Array[Item], Budget) -> Array[Issue]
+
+pub fn verify(Array[Item], Budget, Plan) -> Array[Issue]
+
+pub fn verify_json(String) -> Array[Issue]
+
+// Errors
+
+// Types and methods
+pub(all) struct Batch {
+  id : String
+  indices : Array[Int]
+  item_ids : Array[String]
+  totals : Array[Int]
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+
+pub(all) struct Budget {
+  dimensions : Array[String]
+  limits : Array[Int]
+  max_items : Int
+  batch_overhead : Array[Int]
+  item_overhead : Array[Int]
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+
+pub(all) struct Issue {
+  code : String
+  index : Int
+  dimension : Int
+  message : String
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+
+pub(all) struct Item {
+  id : String
+  costs : Array[Int]
+  group : String?
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+
+pub(all) struct Plan {
+  schema_version : Int
+  strategy : String
+  batches : Array[Batch]
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+pub fn Plan::to_json_string(Self) -> String
+
+pub(all) struct Request {
+  budget : Budget
+  items : Array[Item]
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+
+pub(all) struct VerificationRequest {
+  budget : Budget
+  items : Array[Item]
+  manifest : Plan
+} derive(Eq, ToJson, @debug.Debug, @json.FromJson)
+
+// Type aliases
+
+// Traits
