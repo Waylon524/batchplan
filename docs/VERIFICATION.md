@@ -37,15 +37,13 @@ The exact reproduction scripts, archived code checkpoint and test logs accompany
 
 ## Not run or not completed
 
-- GitHub-hosted CI: workflow prepared, never run because no remote repository exists
-- Mooncakes publication: not attempted; owner namespace and license must be chosen first
+- GitHub-hosted CI: see the repository Actions page for remote runs; the local results above are recorded independently
+- Mooncakes publication: not attempted
 - Live embeddings/database/storage integrations: not implemented or exercised
 - Real user data, production load/performance, fuzzing of the upstream JSON parser, security certification: not evaluated
-- Competition submission and final human-written proposal: not performed or generated
-- Current license status: no active LICENSE grant; MIT is only a proposal for owner review
 
 ## Development-history evidence
 
-The local history contains more than ten actual development commits under `dot AI assistant <dot-agent@localhost>`. Each commit is a substantive implementation, verification or documentation checkpoint. The recorded timestamps are the actual system times; display includes the environment's UTC-07:00 offset. No dates or identity were invented. The delivered Git bundle preserves that history.
+The local history contains more than ten actual development commits under `dot AI assistant <dot-agent@localhost>`. Each commit is a substantive implementation, verification or documentation checkpoint. The recorded timestamps are the actual system times; display includes the environment's UTC-07:00 offset. No dates or identity were invented. The Git history preserves those checkpoints.
 
-Public repository and package publication requirements cannot be marked satisfied by a local bundle. Any eventual public release still needs owner authorization, a legitimate namespace, final license selection, and remote verification.
+Publication preparation adds the owner namespace and approved MIT license without rewriting the earlier development history. Subsequent release work must be verified against its own commit; local test evidence does not imply a hosted CI pass.

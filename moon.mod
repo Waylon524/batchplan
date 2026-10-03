@@ -1,4 +1,4 @@
-name = "dot-agent/batchplan"
+name = "Waylon524/batchplan"
 
 version = "0.1.0"
 
@@ -11,3 +11,7 @@ keywords = [ "batching", "validation", "data-processing" ]
 preferred_target = "js"
 
 warnings = "-implicit_impl_as_method"
+
+license = "MIT"
+
+repository = "https://github.com/Waylon524/batchplan"

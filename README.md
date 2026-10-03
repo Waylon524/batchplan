@@ -23,7 +23,7 @@ The core library also checks, tests and builds for Wasm-GC and native. The CLI i
 
 ## Library example
 
-After copying this local module into your project setup, import `dot-agent/batchplan` as `@batchplan`. That namespace is provisional and has not been published.
+Import the module as `@batchplan` from `Waylon524/batchplan` in a local checkout. The repository namespace matches its GitHub owner; no Mooncakes release is available yet.
 
 ```moonbit
 let budget : @batchplan.Budget = {
@@ -76,8 +76,12 @@ Success uses stdout and exit code 0. Validation or usage failure uses stderr and
 
 All numeric JSON fields use integer literals, from -2,147,483,648 to 2,147,483,647 at decoding; costs and budgets additionally require nonnegative values. Decimal/exponent notation is rejected rather than truncated. A group may be omitted or `null` for ungrouped records. Output JSON keys are sorted deterministically. CSV preserves text exactly; do not open untrusted formula-like IDs directly in spreadsheets.
 
-## Development and release status
+## Development
 
-`bash scripts/check.sh` checks formatting, checks/tests/builds the core on JS/Wasm-GC/native, tests release JS, generates API signatures, and runs CLI and three-example integration checks. A GitHub Actions workflow is prepared; no hosted run has occurred because this repository is local-only. CI follows the current stable official toolchain and prints its exact version.
+`bash scripts/check.sh` checks formatting, checks/tests/builds the core on JS/Wasm-GC/native, tests release JS, generates API signatures, and runs CLI and three-example integration checks. The GitHub Actions workflow follows the current stable official toolchain and prints its exact version. See [verification details](docs/VERIFICATION.md) and [中文上手指南](docs/QUICKSTART.zh-CN.md).
 
-The prototype was implemented with AI assistance. Commits use an explicit AI-assistant identity and actual timestamps. No public repository, package registration/publication or competition submission was performed. Provisional namespace and license require owner decisions. MIT is proposed for review; no license grant has been activated. See [owner review checklist](docs/OWNER_REVIEW.md), [中文上手指南](docs/QUICKSTART.zh-CN.md), and [verification report](docs/VERIFICATION.md).
+## License and attribution
+
+MIT, copyright 2026 Waylon524. See [LICENSE](LICENSE). MoonBit's standard library is an external Apache-2.0 dependency; standard-library source and toolchain binaries are not included here.
+
+This project was implemented with AI assistance and reviewed using independent reference tests. Development commits retain their explicit AI-assistant identity and original timestamps. Maintainers remain responsible for understanding, reviewing and testing changes. See [contribution guidance](CONTRIBUTING.md).

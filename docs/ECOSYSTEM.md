@@ -1,6 +1,6 @@
 # Scoped ecosystem comparison
 
-Registry descriptions were checked on 2026-10-03. This is a limited discovery check, not an exhaustive novelty claim or source-code audit. The search did not identify a directly matching budget-aware record-batch planner; repeat the search before submitting or publishing because the ecosystem changes.
+Registry descriptions were checked on 2026-10-03. This is a limited discovery check, not an exhaustive novelty claim or source-code audit. The search did not identify a directly matching budget-aware record-batch planner; repeat the search before planning a new feature because the ecosystem changes.
 
 ## Adjacent packages
 
